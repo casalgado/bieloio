@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" @click="showNav">
     <div id="oc">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 963.17 844.23">
         <defs>
@@ -74,6 +74,11 @@
       mundo debe escuchar
     </p>
     <p id="logo-text" class="landing-text">BIELO</p>
+    <ul id="nav" class="landing-text">
+      <li id="li1">Nosotros</li>
+      <li id="li2">Contacto</li>
+      <li id="li3">Contenido</li>
+    </ul>
   </div>
 </template>
 
@@ -114,6 +119,7 @@ export default {
         })
         .delay(0.7);
       gsap
+        .timeline()
         .to("#logo-text", {
           duration: 1,
           opacity: 1,
@@ -125,6 +131,30 @@ export default {
           opacity: 1,
         })
         .delay(1.7);
+    },
+    showNav: function() {
+      gsap
+        .timeline()
+        .to("#logo-text", {
+          duration: 0.7,
+          transform: "translate(0,-130px)",
+          ease: "easeInOut",
+        })
+        .to("#li1", {
+          duration: 0.3,
+          opacity: 1,
+          cursor: "pointer",
+        })
+        .to("#li2", {
+          duration: 0.3,
+          opacity: 1,
+          cursor: "pointer",
+        })
+        .to("#li3", {
+          duration: 0.3,
+          opacity: 1,
+          cursor: "pointer",
+        });
     },
   },
   mounted() {
@@ -199,6 +229,7 @@ export default {
   font-weight: 1000;
   font-family: "agrandir-wideheavy";
   font-size: 250%;
+  cursor: pointer;
 }
 
 #slogan {
@@ -211,5 +242,22 @@ export default {
 
 .custom-path {
   fill: #1c2628;
+}
+
+#nav {
+  padding: 0px;
+  opacity: 1;
+}
+
+#nav li {
+  list-style-type: none;
+  text-align: left;
+  font-weight: bold;
+  font-size: 120%;
+  text-transform: uppercase;
+  cursor: default;
+  margin-top: 20px;
+  padding-left: 15px;
+  opacity: 0;
 }
 </style>
