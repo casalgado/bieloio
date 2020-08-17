@@ -10,7 +10,7 @@
     </div>
     <div v-if="active == 1" class="options-container">
       <h2 class="question">
-        Si estuvieras en ciudad me mexico, preferirias comer
+        Si estuvieras en Ciudad de Mexico, preferirias comer
       </h2>
       <OptionBlock oid="opt-one" text="tacos" :ans="1" @answer="progress" />
       <OptionBlock oid="opt-two" text="mariscos" :ans="2" @answer="progress" />
