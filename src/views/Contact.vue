@@ -85,7 +85,7 @@ export default {
       console.log(answers);
 
       if (answers[0] == "3" || answers[0] == "3" || answers[1] == "2") {
-        text = "Vamos a necesitar un gran equipo de marketing.";
+        text = "Luiger va a necesitar un gran equipo de marketing.";
       }
 
       if (
