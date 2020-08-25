@@ -7,7 +7,7 @@
       :interval="interval"
       id="pid0"
       class="ptext"
-      @mouseover.native="displayConditio1 = true"
+      @mouseover.native="displayCondition1 = true"
       >En Bielo creemos en el poder de las historias.</VueTextTransition
     >
     <VueTextTransition
@@ -17,7 +17,7 @@
       :interval="interval"
       id="pid1"
       class="ptext"
-      @mouseover.native="displayConditio2 = true"
+      @mouseover.native="displayCondition2 = true"
       >Esta es la nuestra.</VueTextTransition
     >
     <VueTextTransition
@@ -27,7 +27,7 @@
       :interval="interval"
       id="pid2"
       class="ptext"
-      @mouseover.native="displayConditio3 = true"
+      @mouseover.native="displayCondition3 = true"
     >
       Camilo las escribe. Vive en Bogotá. Su especialidad son los videojuegos,
       pero le hala a cualquier cosa con personajes, tres actos y conflicto. Lo
@@ -40,7 +40,7 @@
       :interval="interval"
       id="pid3"
       class="ptext"
-      @mouseover.native="displayConditio4 = true"
+      @mouseover.native="displayCondition4 = true"
     >
       Esteban las produce. Vive en Los Ángeles. Ama el cine, y cree en el poder
       que tienen para darle voces a quienes no suelen ser escuchados. Como
@@ -53,7 +53,7 @@
       :interval="interval"
       id="pid4"
       class="ptext"
-      @mouseover.native="displayConditio5 = true"
+      @mouseover.native="displayCondition5 = true"
     >
       Camilo y Esteban son primos, y siempre habían querido trabajar juntos,
       pero está el pequeño detalle de los 5600 kms de distancia.
@@ -65,7 +65,7 @@
       :interval="interval"
       id="pid5"
       class="ptext"
-      @mouseover.native="displayConditio6 = true"
+      @mouseover.native="displayCondition6 = true"
     >
       Pero contar historias es lo que les importa, y encontraron la manera de
       hacerlo virtual:
@@ -77,7 +77,7 @@
       :interval="interval"
       id="pid6"
       class="ptext"
-      @mouseover.native="displayConditio7 = true"
+      @mouseover.native="displayCondition7 = true"
     >
       Nuestros protagonistas quisieron montar una compañía de podcasts y
       videojuegos.
@@ -89,7 +89,7 @@
       :interval="interval"
       id="pid7"
       class="ptext"
-      @mouseover.native="displayConditio8 = true"
+      @mouseover.native="displayCondition8 = true"
     >
       Pero no podían no hacerlo solos, la idea era hacer las cosas bien, no solo
       hacerlas.
@@ -101,7 +101,7 @@
       :interval="interval"
       id="pid8"
       class="ptext"
-      @mouseover.native="displayConditio9 = true"
+      @mouseover.native="displayCondition9 = true"
       >Así que en el camino encontraron un mentor.</VueTextTransition
     >
     <VueTextTransition
@@ -111,7 +111,7 @@
       :interval="interval"
       id="pid9"
       class="ptext"
-      @mouseover.native="displayConditio10 = true"
+      @mouseover.native="displayCondition10 = true"
     >
       Andrés es amigo de Camilo de toda la vida, tuvo una exitosa carrera como
       trader y consultor, pero lo dejó todo para dedicarse a asesorar empresas
@@ -124,7 +124,7 @@
       :interval="interval"
       id="pid10"
       class="ptext"
-      @mouseover.native="displayConditio11 = true"
+      @mouseover.native="displayCondition11 = true"
     >
       Esteban y Camilo empezaron a ser asesorados por Andrés, quien les enseñó
       sobre proyecciones, estados financieros, balances, y todas esas historias
@@ -137,7 +137,7 @@
       :interval="interval"
       id="pid11"
       class="ptext"
-      @mouseover.native="displayConditio12 = true"
+      @mouseover.native="displayCondition12 = true"
     >
       Pero, como siempre, hay fuerzas de adversidad.
     </VueTextTransition>
@@ -148,7 +148,7 @@
       :interval="interval"
       id="pid12"
       class="ptext"
-      @mouseover.native="displayConditio13 = true"
+      @mouseover.native="displayCondition13 = true"
       >El Covid llegó. Y daño mucho caminar.(*)</VueTextTransition
     >
     <VueTextTransition
@@ -158,7 +158,7 @@
       :interval="interval"
       id="pid13"
       class="ptext"
-      @mouseover.native="displayConditio14 = true"
+      @mouseover.native="displayCondition14 = true"
     >
       Los proyectos que había escrito Camilo se frenaron.
     </VueTextTransition>
@@ -169,7 +169,7 @@
       :interval="interval"
       id="pid14"
       class="ptext"
-      @mouseover.native="displayConditio15 = true"
+      @mouseover.native="displayCondition15 = true"
       >Las producciones en Los Ángeles pararon.</VueTextTransition
     >
     <VueTextTransition
@@ -179,7 +179,7 @@
       :interval="interval"
       id="pid15"
       class="ptext"
-      @mouseover.native="displayConditio16 = true"
+      @mouseover.native="displayCondition16 = true"
     >
       El café que Andrés manejaba, del cual Camilo era asiduo cliente, entro en
       Hiatus.
@@ -191,7 +191,7 @@
       :interval="interval"
       id="pid16"
       class="ptext"
-      @mouseover.native="displayConditio17 = true"
+      @mouseover.native="displayCondition17 = true"
     >
       Con las ganas intactas Esteban, Andrés y Camilo tomaron un salto de fe, y
       se le dedicaron de lleno a Bielo Media, a esta nueva manera de contar
@@ -229,38 +229,7 @@ export default {
   components: {
     VueTextTransition,
   },
-  mounted() {
-    let conditions = [
-      "displayCondition1",
-      "displayCondition2",
-      "displayCondition3",
-      "displayCondition4",
-      "displayCondition5",
-      "displayCondition6",
-      "displayCondition7",
-      "displayCondition8",
-      "displayCondition9",
-      "displayCondition10",
-      "displayCondition11",
-      "displayCondition12",
-      "displayCondition13",
-      "displayCondition14",
-      "displayCondition15",
-      "displayCondition16",
-      "displayCondition17",
-    ];
-    let delay = 100;
-    for (let index = 0; index < conditions.length; index++) {
-      delay = delay + 400;
-      setTimeout(
-        function() {
-          console.log(index);
-          this["displayCondition" + (index + 1)] = true;
-        }.bind(this),
-        delay
-      );
-    }
-  },
+  mounted() {},
 };
 </script>
 

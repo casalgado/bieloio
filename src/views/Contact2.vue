@@ -2,47 +2,29 @@
   <div id="contact">
     <div v-if="active == 0" class="options-container">
       <h2 class="question">
-        las empresas deben enfocarse en que los clientes los busquen en vez de
-        buscar a sus clientes - esto se genera con las historias
+        Cuando viajas, tu presupuesto para comida es...
       </h2>
-      <OptionBlock
-        oid="opt-one"
-        text="quiero construir mi historia"
-        :ans="1"
-        @answer="progress"
-      />
-      <OptionBlock
-        oid="opt-two"
-        text="quiero contar mi historia"
-        :ans="2"
-        @answer="progress"
-      />
+      <OptionBlock oid="opt-one" text="$" :ans="1" @answer="progress" />
+      <OptionBlock oid="opt-two" text="$$" :ans="2" @answer="progress" />
+      <OptionBlock oid="opt-three" text="$$$" :ans="3" @answer="progress" />
     </div>
     <div v-if="active == 1" class="options-container">
       <h2 class="question">
-        Como deseas que tus 'usuarios' interactuen con tu historia?
+        Si estuvieras en Ciudad de Mexico, preferirias comer
       </h2>
-      <OptionBlock
-        oid="opt-one"
-        text="one way communication"
-        :ans="1"
-        @answer="progress"
-      />
-      <OptionBlock
-        oid="opt-two"
-        text="two way communication"
-        :ans="2"
-        @answer="progress"
-      />
+      <OptionBlock oid="opt-one" text="tacos" :ans="1" @answer="progress" />
+      <OptionBlock oid="opt-two" text="mariscos" :ans="2" @answer="progress" />
+      <OptionBlock oid="opt-three" text="mole" :ans="3" @answer="progress" />
     </div>
-    <!-- <div v-if="active == 2" class="options-container">
+    <div v-if="active == 2" class="options-container">
       <h2 class="question">
         Tu marisco favorito es...
       </h2>
       <OptionBlock oid="opt-one" text="pulpo" :ans="1" @answer="progress" />
       <OptionBlock oid="opt-two" text="langosta" :ans="2" @answer="progress" />
-    </div> -->
-    <div v-if="active == 2" class="options-container">
+      <OptionBlock oid="opt-three" text="calamar" :ans="3" @answer="progress" />
+    </div>
+    <div v-if="active == 3" class="options-container">
       <h2 class="question">
         El resultado es:
       </h2>
@@ -98,17 +80,26 @@ export default {
       });
     },
     setAnsText(answers) {
-      let text = "Gamification";
+      let text = "Luiger la tiene dificil.";
       answers = answers.join("");
       console.log(answers);
 
-      if (answers[0] == "1") {
-        text = "Storytelling";
+      if (answers[0] == "3" || answers[0] == "3" || answers[1] == "2") {
+        text = "Luiger va a necesitar un gran equipo de marketing.";
       }
 
-      if (answers[1] == "1") {
-        text = "Podcast";
+      if (
+        (answers[0] == "3" && answers[1] == "2") ||
+        (answers[0] == "3" && answers[2] == "2") ||
+        (answers[1] == "2" && answers[2] == "2")
+      ) {
+        text = "El viejo Luiger va por buen camino.";
       }
+
+      if (answers == "322") {
+        text = "El negocio de Luiger sera un exito!";
+      }
+
       this.ansText = text;
     },
     progress(evt) {
@@ -118,11 +109,8 @@ export default {
       this.enter("#opt-two", 0.6);
       this.enter("#opt-three", 0.7);
       this.answers.push(evt);
-      if (evt == "1") {
-        this.active = 2;
-      }
 
-      if (this.active == 2) {
+      if (this.active == 3) {
         this.setAnsText(this.answers);
         setTimeout(
           function() {
@@ -157,7 +145,7 @@ export default {
   transform: translate(-50%, -50%);
   gap: 50px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .question {
