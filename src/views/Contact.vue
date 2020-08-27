@@ -79,7 +79,7 @@ export default {
     show(target, delay) {
       gsap
         .to(target, {
-          duration: 0.3,
+          duration: 0.4,
           opacity: 1,
         })
         .delay(delay);
