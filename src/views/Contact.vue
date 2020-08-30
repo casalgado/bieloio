@@ -43,18 +43,25 @@
       <OptionBlock oid="opt-two" text="langosta" :ans="2" @answer="progress" />
     </div> -->
     <div v-if="active == 2" class="options-container">
-      <h2 class="question">
-        El resultado es:
-      </h2>
       <h2 id="answer">
+        El resultado es:
         {{ ansText }}
       </h2>
+      <div id="answer-example"></div>
+      <form id="contact-form">
+        <input v-model="client.name" placeholder="nombre" />
+        <input v-model="client.email" placeholder="email" />
+        <input v-model="client.phone" placeholder="telefono" />
+        <textarea v-model="client.comment" placeholder="comentario" />
+        <button @click.stop.prevent="sendEmail">enviar</button>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
 import { gsap } from "gsap";
+import emailjs from "emailjs-com";
 import OptionBlock from "../components/OptionBlock";
 export default {
   name: "Contact",
@@ -64,6 +71,13 @@ export default {
       active: 0,
       answers: [],
       ansText: "",
+      client: {
+        name: "",
+        email: "",
+        phone: "",
+        interest: "",
+        comment: "",
+      },
     };
   },
   methods: {
@@ -132,6 +146,28 @@ export default {
         );
       }
     },
+    sendEmail() {
+      console.log(emailjs);
+      console.log(this.client);
+      // let serviceID = "gmail";
+      // let templateID = "contact_email";
+      // let userID = process.env.VUE_APP_EMAIL_API_USER_ID;
+      // let templateParams = {
+      //   client_name: this.client.name,
+      //   client_email: this.client.email,
+      //   client_phone: this.client.phone,
+      //   client_interest: this.ansText,
+      //   client_comment: this.client.comment,
+      // };
+      // emailjs.send(serviceID, templateID, templateParams, userID).then(
+      //   function(response) {
+      //     console.log("SUCCESS!", response.status, response.text);
+      //   },
+      //   function(error) {
+      //     console.log("FAILED...", error);
+      //   }
+      // );
+    },
   },
   mounted() {
     this.show(".question", 0);
@@ -161,12 +197,56 @@ export default {
 }
 
 .question {
-  grid-column: span 3;
+  grid-column: span 2;
   opacity: 0;
 }
 
 #answer {
-  grid-column: span 3;
+  grid-column: span 2;
   opacity: 0;
+}
+
+#answer-example {
+  background-color: gray;
+}
+
+#contact-form button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid #1c2628;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 5px;
+  border: 1px solid #1c2628;
+  margin-bottom: 5px;
+  padding: 5px;
+  color: #1c2628;
+  background-color: rgb(219, 240, 238);
+}
+
+#contact-form input:hover,
+#contact-form textarea:hover {
+  background-color: rgb(219, 240, 238);
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  background-color: rgb(237, 237, 237);
+}
+
+#contact-form textarea {
+  height: 60px;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #1c2628;
+  opacity: 1; /* Firefox */
 }
 </style>

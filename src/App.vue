@@ -26,20 +26,19 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 body {
   background-color: rgb(219, 240, 238);
   margin: 0px;
+}
+
+*:active,
+*:focus {
+  outline: 0;
+  outline-color: transparent;
+  outline-width: 0;
+  outline-style: none;
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
 }
 </style>
