@@ -49,11 +49,17 @@
       </h2>
       <div id="answer-example"></div>
       <form id="contact-form">
-        <input v-model="client.name" placeholder="nombre" />
-        <input v-model="client.email" placeholder="email" />
-        <input v-model="client.phone" placeholder="telefono" />
-        <textarea v-model="client.comment" placeholder="comentario" />
-        <button @click.stop.prevent="sendEmail">enviar</button>
+        <input v-model="client.name" :disabled="sent" placeholder="nombre" />
+        <input v-model="client.email" :disabled="sent" placeholder="email" />
+        <input v-model="client.phone" :disabled="sent" placeholder="telefono" />
+        <textarea
+          v-model="client.comment"
+          :disabled="sent"
+          placeholder="comentario"
+        />
+        <button @click.stop.prevent="sendEmail" :disabled="sent">
+          {{ sent ? "mensaje enviado" : "enviar" }}
+        </button>
       </form>
     </div>
   </div>
@@ -71,6 +77,7 @@ export default {
       active: 0,
       answers: [],
       ansText: "",
+      sent: false,
       client: {
         name: "",
         email: "",
@@ -149,24 +156,25 @@ export default {
     sendEmail() {
       console.log(emailjs);
       console.log(this.client);
-      // let serviceID = "gmail";
-      // let templateID = "contact_email";
-      // let userID = process.env.VUE_APP_EMAIL_API_USER_ID;
-      // let templateParams = {
-      //   client_name: this.client.name,
-      //   client_email: this.client.email,
-      //   client_phone: this.client.phone,
-      //   client_interest: this.ansText,
-      //   client_comment: this.client.comment,
-      // };
-      // emailjs.send(serviceID, templateID, templateParams, userID).then(
-      //   function(response) {
-      //     console.log("SUCCESS!", response.status, response.text);
-      //   },
-      //   function(error) {
-      //     console.log("FAILED...", error);
-      //   }
-      // );
+      let serviceID = "gmail";
+      let templateID = "contact_email";
+      let userID = process.env.VUE_APP_EMAIL_API_USER_ID;
+      let templateParams = {
+        client_name: this.client.name,
+        client_email: this.client.email,
+        client_phone: this.client.phone,
+        client_interest: this.ansText,
+        client_comment: this.client.comment,
+      };
+      emailjs.send(serviceID, templateID, templateParams, userID).then(
+        function(response) {
+          console.log("SUCCESS!", response.status, response.text);
+          this.sent = true;
+        }.bind(this),
+        function(error) {
+          console.log("FAILED...", error);
+        }
+      );
     },
   },
   mounted() {
