@@ -12,7 +12,7 @@ const routes = [
   {
     path: "/about",
     name: "About",
-    component: () => import("../views/About3.vue"),
+    component: () => import("../views/About.vue"),
   },
   {
     path: "/about2",
@@ -22,7 +22,7 @@ const routes = [
   {
     path: "/about3",
     name: "About3",
-    component: () => import("../views/About.vue"),
+    component: () => import("../views/About3.vue"),
   },
   {
     path: "/contact",
